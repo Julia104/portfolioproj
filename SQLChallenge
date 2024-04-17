@@ -1,0 +1,21 @@
+ SELECT COUNT(DISTINCT(s.order_date)
+FROM dannys_diner.sales s
+JOIN dannys_diner.menu m ON s.product_id = m.product_id
+GROUP BY s.order_date
+
+
+**Query #2**
+
+    SELECT s.customer_id, SUM(m.price) as TotalAmount
+    FROM dannys_diner.sales s JOIN dannys_diner.menu m ON s.product_id = m.product_id
+    GROUP BY s.customer_id;
+
+| customer_id | totalamount |
+| ----------- | ----------- |
+| B           | 74          |
+| C           | 36          |
+| A           | 76          |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/2rM8RAnq7h5LLDTzZiRWcd/138)
